@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.activiti.org/processdef">
+    <process id="Free" name="请假流程" isExecutable="true">
+        <startEvent id="start" name="流程开始"/>
+        <userTask id="step01" name="部门经理审批" activiti:assignee="李四"/>
+        <userTask id="step02" name="人事审核" activiti:assignee="王五"/>
+        <sequenceFlow id="start-step01" sourceRef="start" targetRef="step01"/>
+        <sequenceFlow id="step01-step02" sourceRef="step01" targetRef="step02"/>
+        <sequenceFlow id="step02-end" sourceRef="step02" targetRef="end"/>
+        <endEvent id="end" name="流程结束"/>
+    </process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_Hello">
+        <bpmndi:BPMNPlane bpmnElement="Hello" id="BPMNPlane_Hello">
+            <bpmndi:BPMNShape id="shape-c04fc2b9-b4c3-4d9b-8d0b-78a08cb0c7e3" bpmnElement="start">
+                <omgdc:Bounds x="-800" y="-200" width="50.0" height="50.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="edge-24ebd236-e2d0-4d3b-9306-2c8ee5d60ef7" bpmnElement="start-step01">
+                <omgdi:waypoint x="-775" y="-175"/>
+                <omgdi:waypoint x="-775" y="-100"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape id="shape-c2aae381-e843-4ec6-ab5b-dc3cb00ed4d1" bpmnElement="step01">
+                <omgdc:Bounds x="-825" y="-100" width="100.0" height="80.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="edge-2ac578aa-e309-4b07-95da-0bd2f5c8534c" bpmnElement="step01-step02">
+                <omgdi:waypoint x="-775" y="-20"/>
+                <omgdi:waypoint x="-775" y="50"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape id="shape-1feba909-6d0b-469a-af6a-3c4fb564779c" bpmnElement="step02">
+                <omgdc:Bounds x="-825" y="50" width="100.0" height="80.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="edge-c19b9d3d-c7d5-4cc4-8090-0255f5bb59cc" bpmnElement="step02-end">
+                <omgdi:waypoint x="-775" y="130"/>
+                <omgdi:waypoint x="-775" y="220"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape id="shape-92f06b50-8e7f-49c5-89bb-f2a7e52a14c5" bpmnElement="end">
+                <omgdc:Bounds x="-800" y="220" width="50.0" height="50.0"/>
+            </bpmndi:BPMNShape>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</definitions>
