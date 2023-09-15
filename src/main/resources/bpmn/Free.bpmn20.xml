@@ -14,8 +14,8 @@
         <sequenceFlow id="step02-end" sourceRef="step02" targetRef="end"/>
         <endEvent id="end" name="流程结束"/>
     </process>
-    <bpmndi:BPMNDiagram id="BPMNDiagram_Hello">
-        <bpmndi:BPMNPlane bpmnElement="Hello" id="BPMNPlane_Hello">
+    <bpmndi:BPMNDiagram id="BPMNDiagram_Free">
+        <bpmndi:BPMNPlane bpmnElement="Free" id="BPMNPlane_Free">
             <bpmndi:BPMNShape id="shape-c04fc2b9-b4c3-4d9b-8d0b-78a08cb0c7e3" bpmnElement="start">
                 <omgdc:Bounds x="-800" y="-200" width="50.0" height="50.0"/>
             </bpmndi:BPMNShape>
