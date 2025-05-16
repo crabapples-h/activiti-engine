@@ -10,7 +10,7 @@ import java.util.List;
 @Slf4j
 public class Test1 {
     /**
-     * 安装Activiti
+     * 安装Activity
      */
     @Test
     public void testInit() {
