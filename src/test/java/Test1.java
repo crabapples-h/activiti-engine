@@ -33,6 +33,9 @@ public class Test1 {
                 .name("请假流程").deploy();
         System.err.println(deploy.getId());
         System.err.println(deploy.getName());
+        System.err.println(deploy.getKey());
+        System.err.println(deploy.getTenantId());
+        System.err.println(deploy.getCategory());
     }
 
     /**
