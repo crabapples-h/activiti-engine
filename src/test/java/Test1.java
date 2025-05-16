@@ -10,11 +10,24 @@ import java.util.List;
 @Slf4j
 public class Test1 {
     /**
-     * 安装Activity
+     * 安装Activiti
      */
     @Test
     public void testInit() {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+        // 部署相关
+        RepositoryService repositoryService = processEngine.getRepositoryService();
+        // 运行时
+        RuntimeService runtimeService = processEngine.getRuntimeService();
+        // 任务
+        TaskService taskService = processEngine.getTaskService();
+        // 历史
+        HistoryService historyService = processEngine.getHistoryService();
+        //
+        ManagementService managementService = processEngine.getManagementService();
+        //
+        DynamicBpmnService dynamicBpmnService = processEngine.getDynamicBpmnService();
+
         System.err.println(processEngine);
     }
 
@@ -29,7 +42,6 @@ public class Test1 {
         RepositoryService repository = processEngine.getRepositoryService();
         Deployment deploy = repository.createDeployment()
                 .addClasspathResource("bpmn/Free.bpmn20.xml")
-                .addClasspathResource("bpmn/Free.png")
                 .name("请假流程").deploy();
         System.err.println(deploy.getId());
         System.err.println(deploy.getName());

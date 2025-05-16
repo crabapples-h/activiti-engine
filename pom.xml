@@ -31,35 +31,35 @@
             <version>${activiti.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.activiti</groupId>
-            <artifactId>activiti-spring</artifactId>
-            <version>${activiti.version}</version>
-        </dependency>
-        <!-- bpmn 模型处理 -->
-        <dependency>
-            <groupId>org.activiti</groupId>
-            <artifactId>activiti-bpmn-model</artifactId>
-            <version>${activiti.version}</version>
-        </dependency>
-        <!-- bpmn 转换 -->
-        <dependency>
-            <groupId>org.activiti</groupId>
-            <artifactId>activiti-bpmn-converter</artifactId>
-            <version>${activiti.version}</version>
-        </dependency>
-        <!-- bpmn json数据转换 -->
-        <dependency>
-            <groupId>org.activiti</groupId>
-            <artifactId>activiti-json-converter</artifactId>
-            <version>${activiti.version}</version>
-        </dependency>
-        <!-- bpmn 布局 -->
-        <dependency>
-            <groupId>org.activiti</groupId>
-            <artifactId>activiti-bpmn-layout</artifactId>
-            <version>${activiti.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.activiti</groupId>-->
+<!--            <artifactId>activiti-spring</artifactId>-->
+<!--            <version>${activiti.version}</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; bpmn 模型处理 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.activiti</groupId>-->
+<!--            <artifactId>activiti-bpmn-model</artifactId>-->
+<!--            <version>${activiti.version}</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; bpmn 转换 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.activiti</groupId>-->
+<!--            <artifactId>activiti-bpmn-converter</artifactId>-->
+<!--            <version>${activiti.version}</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; bpmn json数据转换 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.activiti</groupId>-->
+<!--            <artifactId>activiti-json-converter</artifactId>-->
+<!--            <version>${activiti.version}</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; bpmn 布局 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.activiti</groupId>-->
+<!--            <artifactId>activiti-bpmn-layout</artifactId>-->
+<!--            <version>${activiti.version}</version>-->
+<!--        </dependency>-->
         <!-- activiti 云支持 -->
 <!--        <dependency>-->
 <!--            <groupId>org.activiti.cloud</groupId>-->
@@ -73,12 +73,12 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.28</version>
         </dependency>
-        <!-- mybatis -->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.5.6</version>
-        </dependency>
+<!--        &lt;!&ndash; mybatis &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.mybatis</groupId>-->
+<!--            <artifactId>mybatis</artifactId>-->
+<!--            <version>3.5.6</version>-->
+<!--        </dependency>-->
         <!-- 链接池 -->
         <dependency>
             <groupId>commons-dbcp</groupId>

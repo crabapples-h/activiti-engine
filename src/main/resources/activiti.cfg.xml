@@ -11,24 +11,43 @@ http://www.springframework.org/schema/tx
 http://www.springframework.org/schema/tx/spring-tx.xsd">
     <!-- 默认id对应的值 为processEngineConfiguration -->
     <!-- processEngine Activiti的流程引擎 -->
+    <bean id="local" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/activiti_engine"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+        <property name="maxActive" value="3"/>
+        <property name="maxIdle" value="1"/>
+    </bean>
+    <bean id="remote" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://192.168.10.155:3306/activiti_engine"/>
+        <property name="username" value="crabapples"/>
+        <property name="password" value="crabapples"/>
+        <property name="maxActive" value="3"/>
+        <property name="maxIdle" value="1"/>
+    </bean>
     <bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
-        <property name="jdbcDriver" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/activiti_engine"/>
-<!--        <property name="jdbcUrl" value="jdbc:mysql://192.168.10.155:3306/activiti_engine"/>-->
-        <property name="jdbcUsername" value="crabapples"/>
-        <property name="jdbcPassword" value="crabapples"/>
         <!-- activiti数据库表处理策略 -->
-        <!-- 如果数据库中已经存在表直接使用,否则创建 -->
         <property name="databaseSchemaUpdate" value="true"/>
-<!--        <property name="databaseSchemaUpdate" value="create-drop"/>-->
+        <property name="dataSource" ref="local"/>
     </bean>
 
-    <!--    <bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">-->
-    <!--        <property name="jdbcDriver" value="com.mysql.cj.jdbc.Driver"/>-->
-    <!--        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/activiti_engine"/>-->
-    <!--        <property name="jdbcUsername" value="root"/>-->
-    <!--        <property name="jdbcPassword" value="root"/>-->
-    <!--        &lt;!&ndash; activiti数据库表处理策略 &ndash;&gt;-->
-    <!--        <property name="databaseSchemaUpdate" value="true"/>-->
+
+    <!--    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+    <!--        &lt;!&ndash;数据源配置&ndash;&gt;-->
+    <!--        <property name="dataSource" ref="dataSource"/>-->
+    <!--        &lt;!&ndash;通过configLocation属性指定mybatis核心配置文件mybatis-config.xml路径&ndash;&gt;-->
+    <!--        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>-->
     <!--    </bean>-->
+
+    <!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+    <!--        <property name="username" value="root"/>-->
+    <!--        <property name="password" value="your password"/>-->
+    <!--        <property name="url" value="jdbc:mysql://localhost:3306/mybatis"/>-->
+    <!--        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+    <!--        &lt;!&ndash;其他配置&ndash;&gt;-->
+    <!--    </bean>-->
+
+
 </beans>

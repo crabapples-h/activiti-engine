@@ -5,16 +5,16 @@ import org.activiti.engine.runtime.ProcessInstance;
 
 public class Main {
     public static void main(String[] args) {
-//        ProcessEngine publicrocessEngine = ProcessEngines.getDefaultProcessEngine();
+//        ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
         ProcessEngine processEngine = ProcessEngineConfiguration
                 .createStandaloneProcessEngineConfiguration()
-//                .setJdbcUrl("jdbc:mysql://192.168.10.155:3306/activiti_engine")
-                .setJdbcUrl("jdbc:mysql://localhost:3306/activiti_engine")
-                .setJdbcUsername("root")
-                .setJdbcPassword("root")
+                .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE)
+                .setJdbcUrl("jdbc:mysql://192.168.10.155:3306/activiti_engine")
+//                .setJdbcUrl("jdbc:mysql://localhost:3306/activiti_engine?useSSL=false&serverTimezone=UTC")
+                .setJdbcUsername("crabapples")
+                .setJdbcPassword("crabapples")
                 .setJdbcDriver("com.mysql.cj.jdbc.Driver")
 //                .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE)
-                .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE)
                 .buildProcessEngine();
 //
 //        RepositoryService repositoryService = processEngine.getRepositoryService();
