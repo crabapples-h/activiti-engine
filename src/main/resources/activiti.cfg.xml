@@ -13,7 +13,8 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
     <!-- processEngine Activiti的流程引擎 -->
     <bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
         <property name="jdbcDriver" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://192.168.10.155:3306/activiti_engine"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/activiti_engine"/>
+<!--        <property name="jdbcUrl" value="jdbc:mysql://192.168.10.155:3306/activiti_engine"/>-->
         <property name="jdbcUsername" value="crabapples"/>
         <property name="jdbcPassword" value="crabapples"/>
         <!-- activiti数据库表处理策略 -->

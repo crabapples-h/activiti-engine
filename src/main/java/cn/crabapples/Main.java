@@ -8,9 +8,10 @@ public class Main {
 //        ProcessEngine publicrocessEngine = ProcessEngines.getDefaultProcessEngine();
         ProcessEngine processEngine = ProcessEngineConfiguration
                 .createStandaloneProcessEngineConfiguration()
-                .setJdbcUrl("jdbc:mysql://192.168.10.155:3306/activiti_engine")
-                .setJdbcUsername("crabapples")
-                .setJdbcPassword("crabapples")
+//                .setJdbcUrl("jdbc:mysql://192.168.10.155:3306/activiti_engine")
+                .setJdbcUrl("jdbc:mysql://localhost:3306/activiti_engine")
+                .setJdbcUsername("root")
+                .setJdbcPassword("root")
                 .setJdbcDriver("com.mysql.cj.jdbc.Driver")
 //                .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE)
                 .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE)
