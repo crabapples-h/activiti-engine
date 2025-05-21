@@ -2,12 +2,12 @@
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
   <process id="Free" name="请假流程" isExecutable="true">
     <startEvent id="start" name="流程开始"/>
+    <userTask id="step-01" name="发起请假" activiti:assignee="zhangsan"/>
     <userTask id="step-02" name="部门经理审批" activiti:assignee="lisi"/>
     <userTask id="step-03" name="人事审核" activiti:assignee="wangwu"/>
     <sequenceFlow id="start-step01" sourceRef="start" targetRef="step-01"/>
     <sequenceFlow id="step01-step02" sourceRef="step-02" targetRef="step-03"/>
     <endEvent id="end" name="流程结束"/>
-    <userTask id="step-01" name="发起请假" activiti:assignee="zhangsan"/>
     <sequenceFlow id="sid-c022461f-5385-41eb-9f59-870918c9f012" sourceRef="step-01" targetRef="step-02"/>
     <sequenceFlow id="sid-28c923fe-85eb-42fc-8e66-3a1554c4a973" sourceRef="step-03" targetRef="end"/>
   </process>

@@ -87,14 +87,33 @@ public class TestProcess {
      * 查询待办任务
      */
     @Test
-    public void testTask() {
-        // 启动流程
+    public void testQueryTask() {
         final List<Task> list = taskService.createTaskQuery()
-                .processDefinitionName("Free")
-                .taskAssignee("张三")
+//                .processDefinitionName("请假流程")
+                .processDefinitionKey("Free")
+                .taskAssignee("zhangsan")
                 .list();
         for (Task task : list) {
-            System.err.println(task);
+            log.info("任务id:[{}]", task.getId());
+            log.info("任务name:[{}]", task.getName());
+            log.info("任务assignee:[{}]", task.getAssignee());
+            log.info("任务createTime:[{}]", task.getCreateTime());
+            log.info("任务processDefinitionId:[{}]", task.getProcessDefinitionId());
+            log.info("任务processInstanceId:[{}]", task.getProcessInstanceId());
+            log.info("任务executionId:[{}]", task.getExecutionId());
+            log.info("任务taskDefinitionKey:[{}]", task.getTaskDefinitionKey());
+            log.info("任务description:[{}]", task.getDescription());
+            log.info("任务category:[{}]", task.getCategory());
+            log.info("任务priority:[{}]", task.getPriority());
+            log.info("任务tenantId:[{}]", task.getTenantId());
+            log.info("任务formKey:[{}]", task.getFormKey());
+            log.info("任务parentTaskId:[{}]", task.getParentTaskId());
+            log.info("任务localVariables:[{}]", task.getTaskLocalVariables());
+            log.info("任务processVariables:[{}]", task.getProcessVariables());
+            log.info("任务claimTime:[{}]", task.getClaimTime());
+            log.info("任务suspended:[{}]", task.isSuspended());
+            log.info("任务appVersion:[{}]", task.getAppVersion());
+            log.info("任务businessKey:[{}]", task.getBusinessKey());
         }
 
     }
