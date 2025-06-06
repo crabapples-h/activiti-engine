@@ -3,18 +3,22 @@ import org.activiti.bpmn.model.BpmnModel;
 import org.activiti.engine.*;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.ProcessDefinition;
+import org.activiti.engine.repository.ProcessDefinitionQuery;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 /**
  * 功能描述: 测试流程
  */
-@Slf4j
+//@Slf4j
 public class TestProcess {
+    Logger log = LoggerFactory.getLogger(TestProcess.class);
     ProcessEngine processEngine = null;
     RepositoryService repositoryService = null;
     RuntimeService runtimeService = null;
@@ -42,9 +46,15 @@ public class TestProcess {
     }
 
 
+    /**
+     * 查询流程定义
+     */
     @Test
     public void testQuery() {
-        System.err.println(repositoryService.getProcessDefinition("Free"));
+        List<ProcessDefinition> list = repositoryService.createProcessDefinitionQuery().list();
+        for (ProcessDefinition processDefinition : list) {
+            System.err.println(processDefinition);
+        }
     }
 
     /**
@@ -89,31 +99,22 @@ public class TestProcess {
     @Test
     public void testQueryTask() {
         final List<Task> list = taskService.createTaskQuery()
-//                .processDefinitionName("请假流程")
+                .processDefinitionName("请假流程")
                 .processDefinitionKey("Free")
-                .taskAssignee("zhangsan")
+//                .taskAssignee("zhangsan")
                 .list();
         for (Task task : list) {
-            log.info("任务id:[{}]", task.getId());
-            log.info("任务name:[{}]", task.getName());
-            log.info("任务assignee:[{}]", task.getAssignee());
-            log.info("任务createTime:[{}]", task.getCreateTime());
-            log.info("任务processDefinitionId:[{}]", task.getProcessDefinitionId());
-            log.info("任务processInstanceId:[{}]", task.getProcessInstanceId());
-            log.info("任务executionId:[{}]", task.getExecutionId());
-            log.info("任务taskDefinitionKey:[{}]", task.getTaskDefinitionKey());
-            log.info("任务description:[{}]", task.getDescription());
-            log.info("任务category:[{}]", task.getCategory());
-            log.info("任务priority:[{}]", task.getPriority());
-            log.info("任务tenantId:[{}]", task.getTenantId());
-            log.info("任务formKey:[{}]", task.getFormKey());
-            log.info("任务parentTaskId:[{}]", task.getParentTaskId());
-            log.info("任务localVariables:[{}]", task.getTaskLocalVariables());
-            log.info("任务processVariables:[{}]", task.getProcessVariables());
-            log.info("任务claimTime:[{}]", task.getClaimTime());
-            log.info("任务suspended:[{}]", task.isSuspended());
-            log.info("任务appVersion:[{}]", task.getAppVersion());
-            log.info("任务businessKey:[{}]", task.getBusinessKey());
+            log.info("\n任务id:[{}]\n任务当前节点名称:[{}]\n任务当前负责人:[{}]\n创建时间:[{}]\n流程定义ID:[{}]\n" +
+                            "流程实例ID:[{}]\n任务executionId:[{}]\n任务taskDefinitionKey:[{}]\n任务description:[{}]\n" +
+                            "任务category:[{}]\n任务priority:[{}]\n任务tenantId:[{}]\n任务formKey:[{}]\n任务parentTaskId:[{}]\n" +
+                            "任务localVariables:[{}]\n任务processVariables:[{}]\n任务claimTime:[{}]\n任务suspended:[{}]\n" +
+                            "任务appVersion:[{}]\n任务businessKey:[{}]\n",
+                    task.getId(), task.getName(), task.getAssignee(), task.getCreateTime(), task.getProcessDefinitionId(),
+                    task.getProcessInstanceId(), task.getExecutionId(), task.getTaskDefinitionKey(), task.getDescription(),
+                    task.getCategory(), task.getPriority(), task.getTenantId(), task.getFormKey(), task.getParentTaskId(),
+                    task.getTaskLocalVariables(), task.getProcessVariables(), task.getClaimTime(), task.isSuspended(),
+                    task.getAppVersion(), task.getBusinessKey()
+            );
         }
 
     }
