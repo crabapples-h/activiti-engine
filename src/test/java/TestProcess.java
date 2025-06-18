@@ -16,9 +16,8 @@ import java.util.List;
 /**
  * 功能描述: 测试流程
  */
-//@Slf4j
+@Slf4j
 public class TestProcess {
-    Logger log = LoggerFactory.getLogger(TestProcess.class);
     ProcessEngine processEngine = null;
     RepositoryService repositoryService = null;
     RuntimeService runtimeService = null;
@@ -101,7 +100,7 @@ public class TestProcess {
         final List<Task> list = taskService.createTaskQuery()
                 .processDefinitionName("请假流程")
                 .processDefinitionKey("Free")
-//                .taskAssignee("zhangsan")
+                .taskAssignee("zhangsan")
                 .list();
         for (Task task : list) {
             log.info("\n任务id:[{}]\n任务当前节点名称:[{}]\n任务当前负责人:[{}]\n创建时间:[{}]\n流程定义ID:[{}]\n" +
@@ -116,6 +115,14 @@ public class TestProcess {
                     task.getAppVersion(), task.getBusinessKey()
             );
         }
+    }
 
+
+    /**
+     * 完成任务
+     */
+    @Test
+    public void testCompleteTask() {
+        taskService.complete("15005");
     }
 }
