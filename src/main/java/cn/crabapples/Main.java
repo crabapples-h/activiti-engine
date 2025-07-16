@@ -9,7 +9,7 @@ public class Main {
         ProcessEngine processEngine = ProcessEngineConfiguration
                 .createStandaloneProcessEngineConfiguration()
                 .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE)
-                .setJdbcUrl("jdbc:mysql://192.168.10.155:3306/activiti_engine")
+                .setJdbcUrl("jdbc:mysql://192.168.10.108:3306/activiti_engine")
 //                .setJdbcUrl("jdbc:mysql://localhost:3306/activiti_engine?useSSL=false&serverTimezone=UTC")
                 .setJdbcUsername("crabapples")
                 .setJdbcPassword("crabapples")
