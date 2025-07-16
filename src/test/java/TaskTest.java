@@ -48,4 +48,11 @@ public class TaskTest {
         TaskService taskService = processEngine.getTaskService();
         taskService.complete("7505");
     }
+
+    @Test
+    public void pauseTask() {
+        log.info("暂停任务");
+        ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+        TaskService taskService = processEngine.getTaskService();
+    }
 }
