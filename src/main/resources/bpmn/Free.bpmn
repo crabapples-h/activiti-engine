@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/processdef" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1752666700023" name="" targetNamespace="http://www.activiti.org/processdef" typeLanguage="http://www.w3.org/2001/XMLSchema">
+    <message id="MSG_1"/>
+    <process id="Free" isClosed="false" isExecutable="true" name="请假流程" processType="None">
+        <startEvent id="start" name="流程开始"/>
+        <userTask activiti:assignee="zhangsan" activiti:exclusive="true" id="step-01" name="发起请假"/>
+        <userTask activiti:assignee="lisi" activiti:exclusive="true" id="step-02" name="部门经理审批"/>
+        <userTask activiti:assignee="wangwu" activiti:exclusive="true" id="step-03" name="人事审核"/>
+        <sequenceFlow id="start-step01" sourceRef="start" targetRef="step-01"/>
+        <sequenceFlow id="step01-step02" sourceRef="step-02" targetRef="step-03"/>
+        <endEvent id="end" name="流程结束"/>
+        <sequenceFlow id="sid-c022461f-5385-41eb-9f59-870918c9f012" sourceRef="step-01" targetRef="step-02"/>
+        <sequenceFlow id="sid-28c923fe-85eb-42fc-8e66-3a1554c4a973" sourceRef="step-03" targetRef="end"/>
+    </process>
+    <bpmndi:BPMNDiagram documentation="background=#2B2D30;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
+        <bpmndi:BPMNPlane bpmnElement="Free">
+            <bpmndi:BPMNShape bpmnElement="start" id="Shape-start">
+                <omgdc:Bounds height="32.0" width="32.0" x="550.0" y="230.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="step-02" id="Shape-step-02">
+                <omgdc:Bounds height="55.0" width="85.0" x="530.0" y="410.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="step-03" id="Shape-step-03">
+                <omgdc:Bounds height="55.0" width="85.0" x="530.0" y="510.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="end" id="Shape-end">
+                <omgdc:Bounds height="32.0" width="32.0" x="550.0" y="630.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="step-01" id="Shape-step-01">
+                <omgdc:Bounds height="55.0" width="85.0" x="530.0" y="330.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge bpmnElement="sid-28c923fe-85eb-42fc-8e66-3a1554c4a973" id="BPMNEdge_sid-28c923fe-85eb-42fc-8e66-3a1554c4a973" sourceElement="step-03" targetElement="end">
+                <omgdi:waypoint x="566.0" y="565.0"/>
+                <omgdi:waypoint x="566.0" y="630.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="-1.0" width="-1.0" x="-1.0" y="-1.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="step01-step02" id="BPMNEdge_step01-step02" sourceElement="step-02" targetElement="step-03">
+                <omgdi:waypoint x="572.5" y="465.0"/>
+                <omgdi:waypoint x="572.5" y="510.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="-1.0" width="-1.0" x="-1.0" y="-1.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="sid-c022461f-5385-41eb-9f59-870918c9f012" id="BPMNEdge_sid-c022461f-5385-41eb-9f59-870918c9f012" sourceElement="step-01" targetElement="step-02">
+                <omgdi:waypoint x="572.5" y="385.0"/>
+                <omgdi:waypoint x="572.5" y="410.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="-1.0" width="-1.0" x="-1.0" y="-1.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="start-step01" id="BPMNEdge_start-step01" sourceElement="start" targetElement="step-01">
+                <omgdi:waypoint x="566.0" y="262.0"/>
+                <omgdi:waypoint x="566.0" y="330.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="-1.0" width="-1.0" x="-1.0" y="-1.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</definitions>

@@ -68,8 +68,8 @@ public class TestProcess {
 //        3. 使用service进行流程部署, 定义一个流程名字,把bpmn和png部署到数据库中
         Deployment deploy = repository.createDeployment()
                 .name("请假流程")
-                .addClasspathResource("bpmn/Free.bpmn20.xml")
-                .addClasspathResource("bpmn/Free.bpmn20.png")
+                .addClasspathResource("bpmn/Free.bpmn")
+                .addClasspathResource("bpmn/Free.png")
                 .deploy();
 //        4. 输出部署信息
         log.info("流程部署id:[{}]", deploy.getId());

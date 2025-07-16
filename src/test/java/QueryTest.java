@@ -1,19 +1,17 @@
 import lombok.extern.slf4j.Slf4j;
-import org.activiti.engine.ProcessEngine;
-import org.activiti.engine.ProcessEngines;
-import org.activiti.engine.RepositoryService;
-import org.activiti.engine.RuntimeService;
+import org.activiti.engine.*;
 import org.activiti.engine.repository.DeploymentQuery;
 import org.activiti.engine.runtime.ExecutionQuery;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.runtime.ProcessInstanceQuery;
+import org.activiti.engine.task.TaskQuery;
 import org.junit.Test;
 
 import java.util.List;
 
 
 @Slf4j
-public class QueryDefinition {
+public class QueryTest {
     @Test
     public void queryDefine() {
         log.info("查询流程定义");
@@ -58,6 +56,21 @@ public class QueryDefinition {
         List<ProcessInstance> list = processInstanceQuery.list();
         list.forEach(processInstance -> {
             log.info("流程实例:[{}]", processInstance);
+        });
+    }
+
+    @Test
+    public void queryTask() {
+        log.info("查询任务");
+        ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+        TaskService taskService = processEngine.getTaskService();
+        TaskQuery taskQuery = taskService.createTaskQuery();
+        taskQuery.list().forEach(task -> {
+            log.info("任务ID:[{}]", task.getId());
+            log.info("任务名称:[{}]", task.getName());
+            log.info("任务创建时间:[{}]", task.getCreateTime());
+            log.info("任务办理人:[{}]", task.getAssignee());
+            log.info("任务办理人:[{}]", task.getBusinessKey());
         });
     }
 

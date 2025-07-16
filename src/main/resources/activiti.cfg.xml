@@ -8,7 +8,7 @@
     <!-- processEngine Activiti的流程引擎 -->
     <bean id="local" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/activiti_engine"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/activiti_engine"/>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
         <property name="maxActive" value="3"/>
@@ -16,10 +16,9 @@
     </bean>
     <bean id="remote" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://192.168.10.155:3306/activiti_engine"/>
-        <property name="username" value="crabapples"/>
-        <property name="password" value="crabapples"/>
-        <property name="maxActive" value="3"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/activiti_engine"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
         <property name="maxIdle" value="1"/>
     </bean>
     <bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">

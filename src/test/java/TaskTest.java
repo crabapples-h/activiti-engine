@@ -1,6 +1,7 @@
 import lombok.extern.slf4j.Slf4j;
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngines;
+import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.task.Task;
 import org.activiti.engine.task.TaskQuery;
@@ -46,13 +47,13 @@ public class TaskTest {
         log.info("完成任务");
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
         TaskService taskService = processEngine.getTaskService();
-        taskService.complete("7505");
+        taskService.complete("45005");
     }
 
     @Test
-    public void pauseTask() {
-        log.info("暂停任务");
+    public void testCompleteTask() {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
         TaskService taskService = processEngine.getTaskService();
+        taskService.complete("15005");
     }
 }
