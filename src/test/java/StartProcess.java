@@ -12,7 +12,7 @@ import java.util.List;
 public class StartProcess {
     @Test
     public void startProcess() {
-        log.info("开始启动流程");
+        log.info("开始启动流程实例");
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
         RuntimeService runtimeService = processEngine.getRuntimeService();
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("Free");
