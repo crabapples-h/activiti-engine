@@ -2,8 +2,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngines;
 import org.activiti.engine.RepositoryService;
+import org.activiti.engine.RuntimeService;
 import org.activiti.engine.repository.DeploymentQuery;
+import org.activiti.engine.runtime.ExecutionQuery;
+import org.activiti.engine.runtime.ProcessInstance;
+import org.activiti.engine.runtime.ProcessInstanceQuery;
 import org.junit.Test;
+
+import java.util.List;
 
 
 @Slf4j
@@ -40,6 +46,29 @@ public class QueryDefinition {
             log.info("流程部署tenantId:[{}]", deployment.getTenantId());
             log.info("流程部署category:[{}]", deployment.getCategory());
             log.info("-----------------------------");
+        });
+    }
+
+    @Test
+    public void queryProcessInstance() {
+        log.info("查询正在执行的流程实例");
+        ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+        RuntimeService runtimeService = processEngine.getRuntimeService();
+        ProcessInstanceQuery processInstanceQuery = runtimeService.createProcessInstanceQuery();
+        List<ProcessInstance> list = processInstanceQuery.list();
+        list.forEach(processInstance -> {
+            log.info("流程实例:[{}]", processInstance);
+        });
+    }
+
+    @Test
+    public void queryExecution() {
+        log.info("查询执行中的流程");
+        ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+        RuntimeService runtimeService = processEngine.getRuntimeService();
+        ExecutionQuery executionQuery = runtimeService.createExecutionQuery();
+        executionQuery.list().forEach(execution -> {
+            log.info("流程实例ID:[{}]", execution);
         });
     }
 }

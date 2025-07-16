@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
   <process id="id-001" name="测试流程" isExecutable="true">
-    <startEvent id="sid-eebd0556-acd3-4348-b04d-22fee33fb0c9" name="开始"/>
+    <startEvent id="sid-eebd0556-acd3-4348-b04d-22fee33fb0c9" name="开始">
+    </startEvent>
     <userTask id="sid-f0660c50-d307-4368-8c57-9664946d94f6" name="处理"/>
     <sequenceFlow id="sid-1f6664b2-cdd2-43b4-8e97-55dd84d499b4" sourceRef="sid-eebd0556-acd3-4348-b04d-22fee33fb0c9" targetRef="sid-f0660c50-d307-4368-8c57-9664946d94f6"/>
     <endEvent id="sid-651cd40f-27ca-463b-9cb1-5351c1d36dfe" name="结束"/>
