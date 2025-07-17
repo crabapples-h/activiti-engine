@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.zip.ZipInputStream;
 
 
@@ -27,7 +28,6 @@ public class DeployTest {
                 .deploy();
     }
 
-
     @Test
     public void deleteDeploy() {
         log.info("开始删除流程定义");
@@ -39,18 +39,16 @@ public class DeployTest {
     }
 
     @Test
-    public void deployZip() throws FileNotFoundException {
-        log.info("开始部署流程定义");
+    public void deployZip() {
+        log.info("开始使用ZIP部署流程定义");
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
         RepositoryService repositoryService = processEngine.getRepositoryService();
         DeploymentBuilder deployment = repositoryService.createDeployment();
-        String zipPath = "D:\\test\\deploy.zip";
-        FileInputStream inputStream = new FileInputStream(zipPath);
+        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("bpmn/test-02.zip");
         ZipInputStream zipInputStream = new ZipInputStream(inputStream);
         deployment.addZipInputStream(zipInputStream)
                 .name("deploy_name_02")
                 .key("deploy_key_02")
                 .deploy();
-        deployment.deploy();
     }
 }
