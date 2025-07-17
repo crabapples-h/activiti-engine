@@ -6,6 +6,10 @@ import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.DeploymentBuilder;
 import org.junit.Test;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.zip.ZipInputStream;
+
 
 @Slf4j
 public class DeployTest {
@@ -34,4 +38,19 @@ public class DeployTest {
         }
     }
 
+    @Test
+    public void deployZip() throws FileNotFoundException {
+        log.info("开始部署流程定义");
+        ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+        RepositoryService repositoryService = processEngine.getRepositoryService();
+        DeploymentBuilder deployment = repositoryService.createDeployment();
+        String zipPath = "D:\\test\\deploy.zip";
+        FileInputStream inputStream = new FileInputStream(zipPath);
+        ZipInputStream zipInputStream = new ZipInputStream(inputStream);
+        deployment.addZipInputStream(zipInputStream)
+                .name("deploy_name_02")
+                .key("deploy_key_02")
+                .deploy();
+        deployment.deploy();
+    }
 }
