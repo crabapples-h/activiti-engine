@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/processdef" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1752666665306" name="" targetNamespace="http://www.activiti.org/processdef" typeLanguage="http://www.w3.org/2001/XMLSchema">
     <message id="MSG_1" name="testMessage"/>
-    <process id="bpmn_file_id" isClosed="false" isExecutable="true" name="bpnm_file_name" processType="None">
+    <process id="bpmn_file_id_02_02" isClosed="false" isExecutable="true" name="bpnm_file_name_02_02" processType="None">
         <startEvent id="sid-eebd0556-acd3-4348-b04d-22fee33fb0c9" name="开始"/>
         <userTask activiti:exclusive="true" id="node_01" name="处理-1"/>
         <sequenceFlow id="sid-1f6664b2-cdd2-43b4-8e97-55dd84d499b4" sourceRef="sid-eebd0556-acd3-4348-b04d-22fee33fb0c9" targetRef="node_01"/>
@@ -11,7 +11,7 @@
         <sequenceFlow id="_4" sourceRef="node_01" targetRef="node_02"/>
     </process>
     <bpmndi:BPMNDiagram documentation="background=#2B2D30;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
-        <bpmndi:BPMNPlane bpmnElement="bpmn_file_id">
+        <bpmndi:BPMNPlane bpmnElement="bpmn_file_id_02_02">
             <bpmndi:BPMNShape bpmnElement="sid-eebd0556-acd3-4348-b04d-22fee33fb0c9" id="Shape-sid-eebd0556-acd3-4348-b04d-22fee33fb0c9">
                 <omgdc:Bounds height="32.0" width="32.0" x="570.0" y="170.0"/>
                 <bpmndi:BPMNLabel>

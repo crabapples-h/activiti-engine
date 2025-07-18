@@ -4,10 +4,12 @@ import org.activiti.engine.ProcessEngines;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.DeploymentBuilder;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.zip.ZipInputStream;
 
 
@@ -44,12 +46,9 @@ public class DeployTest {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
         RepositoryService repositoryService = processEngine.getRepositoryService();
         DeploymentBuilder deployment = repositoryService.createDeployment();
-        String zipPath = "D:\\test\\deploy.zip";
-        FileInputStream inputStream = new FileInputStream(zipPath);
+        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("bpmn/test-02.zip");
         ZipInputStream zipInputStream = new ZipInputStream(inputStream);
         deployment.addZipInputStream(zipInputStream)
-                .name("deploy_name_02")
-                .key("deploy_key_02")
                 .deploy();
         deployment.deploy();
     }
