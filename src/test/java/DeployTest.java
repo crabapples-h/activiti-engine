@@ -29,7 +29,6 @@ public class DeployTest {
                 .deploy();
     }
 
-
     @Test
     public void deleteDeploy() {
         log.info("开始删除流程定义");
@@ -41,8 +40,8 @@ public class DeployTest {
     }
 
     @Test
-    public void deployZip() throws FileNotFoundException {
-        log.info("开始部署流程定义");
+    public void deployZip() {
+        log.info("开始使用ZIP部署流程定义");
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
         RepositoryService repositoryService = processEngine.getRepositoryService();
         DeploymentBuilder deployment = repositoryService.createDeployment();
@@ -50,6 +49,5 @@ public class DeployTest {
         ZipInputStream zipInputStream = new ZipInputStream(inputStream);
         deployment.addZipInputStream(zipInputStream)
                 .deploy();
-        deployment.deploy();
     }
 }
