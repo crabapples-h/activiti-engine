@@ -24,6 +24,7 @@ public class ProcessTest {
         ProcessInstance processInstance = runtimeService.startProcessInstanceById("bpmn_file_id:1:27504");
         printDetail(processInstance);
 
+
     }
 
     @Test
