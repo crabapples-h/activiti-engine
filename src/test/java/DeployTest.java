@@ -6,10 +6,11 @@ import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.DeploymentBuilder;
 import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.repository.ProcessDefinitionQuery;
-import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.zip.ZipInputStream;
 
 
@@ -61,19 +62,19 @@ public class DeployTest {
         ProcessDefinition definition = processDefinitionQuery.processDefinitionKey(processKey).singleResult();
         String deploymentId = definition.getDeploymentId();
         log.info("流程定义ID:{}", deploymentId);
-
-        InputStream bpnmInputStream = repositoryService.getResourceAsStream(deploymentId, definition.getResourceName());
         String file = "D:/" + processKey;
-        FileOutputStream bpmnOutputStream = new FileOutputStream(file + ".bpmn");
-        bpmnOutputStream.write(bpnmInputStream.readAllBytes());
-        bpnmInputStream.close();
-        bpmnOutputStream.close();
 
-        InputStream pngInputStream = repositoryService.getResourceAsStream(deploymentId, definition.getDiagramResourceName());
-        FileOutputStream pngOutputStream = new FileOutputStream(file + ".png");
-        pngOutputStream.write(pngInputStream.readAllBytes());
-        pngInputStream.close();
-        pngOutputStream.close();
+        InputStream bpnmInput = repositoryService.getResourceAsStream(deploymentId, definition.getResourceName());
+        FileOutputStream bpmnOutput = new FileOutputStream(file + ".bpmn");
+        bpmnOutput.write(bpnmInput.readAllBytes());
+        bpnmInput.close();
+        bpmnOutput.close();
+
+        InputStream pngInput = repositoryService.getResourceAsStream(deploymentId, definition.getDiagramResourceName());
+        FileOutputStream pngOutput = new FileOutputStream(file + ".png");
+        pngOutput.write(pngInput.readAllBytes());
+        pngInput.close();
+        pngOutput.close();
         log.info("下载成功");
     }
 }
