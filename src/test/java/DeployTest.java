@@ -4,12 +4,12 @@ import org.activiti.engine.ProcessEngines;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.DeploymentBuilder;
+import org.activiti.engine.repository.ProcessDefinition;
+import org.activiti.engine.repository.ProcessDefinitionQuery;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.zip.ZipInputStream;
 
 
@@ -49,5 +49,31 @@ public class DeployTest {
         ZipInputStream zipInputStream = new ZipInputStream(inputStream);
         deployment.addZipInputStream(zipInputStream)
                 .deploy();
+    }
+
+    @Test
+    public void downloadResources() throws IOException {
+        log.info("开始下载流程定义的资源");
+        String processKey = "bpmn_file_id_02_01";
+        ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+        RepositoryService repositoryService = processEngine.getRepositoryService();
+        ProcessDefinitionQuery processDefinitionQuery = repositoryService.createProcessDefinitionQuery();
+        ProcessDefinition definition = processDefinitionQuery.processDefinitionKey(processKey).singleResult();
+        String deploymentId = definition.getDeploymentId();
+        log.info("流程定义ID:{}", deploymentId);
+
+        InputStream bpnmInputStream = repositoryService.getResourceAsStream(deploymentId, definition.getResourceName());
+        String file = "D:/" + processKey;
+        FileOutputStream bpmnOutputStream = new FileOutputStream(file + ".bpmn");
+        bpmnOutputStream.write(bpnmInputStream.readAllBytes());
+        bpnmInputStream.close();
+        bpmnOutputStream.close();
+
+        InputStream pngInputStream = repositoryService.getResourceAsStream(deploymentId, definition.getDiagramResourceName());
+        FileOutputStream pngOutputStream = new FileOutputStream(file + ".png");
+        pngOutputStream.write(pngInputStream.readAllBytes());
+        pngInputStream.close();
+        pngOutputStream.close();
+        log.info("下载成功");
     }
 }
